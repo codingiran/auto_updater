@@ -1,3 +1,5 @@
+#if canImport(Sparkle)
+
 import Cocoa
 import FlutterMacOS
 import Sparkle
@@ -71,3 +73,27 @@ public class AutoUpdater: NSObject, SPUUpdaterDelegate {
         }
     }
 }
+
+#else
+
+import Cocoa
+import FlutterMacOS
+
+public class AutoUpdater: NSObject {
+    public var onEvent: ((String) -> Void)?
+    
+    override init() {
+        super.init()
+        let hostBundle = Bundle.main
+    }
+    
+    public func setFeedURL(_ feedURL: URL?) {}
+    
+    public func checkForUpdates() {}
+    
+    public func checkForUpdatesInBackground() {}
+
+    public func setScheduledCheckInterval(_ interval: Int) {}
+}
+
+#endif
