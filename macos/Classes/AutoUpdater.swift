@@ -84,7 +84,6 @@ public class AutoUpdater: NSObject {
     
     override init() {
         super.init()
-        let hostBundle = Bundle.main
     }
     
     public func setFeedURL(_ feedURL: URL?) {}
